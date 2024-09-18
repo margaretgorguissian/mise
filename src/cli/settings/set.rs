@@ -134,13 +134,14 @@ pub mod tests {
             "1"
         );
 
-        assert_cli_snapshot!("settings", @r###"
+        assert_cli_snapshot!("settings", @r#"
         activate_aggressive = false
         all_compile = false
         always_keep_download = true
         always_keep_install = true
         asdf = true
         asdf_compat = false
+        cache_age = "0"
         cargo_binstall = true
         color = true
         disable_default_shorthands = false
@@ -177,7 +178,7 @@ pub mod tests {
         missing_tools = "never"
         show_env = false
         show_tools = false
-        "###);
+        "#);
         reset();
     }
 }

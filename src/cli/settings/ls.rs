@@ -58,13 +58,14 @@ mod tests {
     #[test]
     fn test_settings_ls() {
         reset();
-        assert_cli_snapshot!("settings", @r###"
+        assert_cli_snapshot!("settings", @r#"
         activate_aggressive = false
         all_compile = false
         always_keep_download = true
         always_keep_install = true
         asdf = true
         asdf_compat = false
+        cache_age = "0"
         cargo_binstall = true
         color = true
         disable_default_shorthands = false
@@ -101,19 +102,20 @@ mod tests {
         missing_tools = "if_other_versions_installed"
         show_env = false
         show_tools = false
-        "###);
+        "#);
     }
 
     #[test]
     fn test_settings_ls_keys() {
         reset();
-        assert_cli_snapshot!("settings", "--keys", @r###"
+        assert_cli_snapshot!("settings", "--keys", @r#"
         activate_aggressive
         all_compile
         always_keep_download
         always_keep_install
         asdf
         asdf_compat
+        cache_age
         cargo_binstall
         color
         disable_default_shorthands
@@ -149,6 +151,6 @@ mod tests {
         verbose
         vfox
         yes
-        "###);
+        "#);
     }
 }

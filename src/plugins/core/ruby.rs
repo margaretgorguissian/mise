@@ -274,8 +274,8 @@ impl RubyPlugin {
         if env::MISE_RUBY_APPLY_PATCHES.is_some() {
             args.push("--patch".into());
         }
-        args.push(tv.version.clone());
-        args.push(tv.install_path().to_string_lossy().to_string());
+        args.prepend(tv.install_path().to_string_lossy().to_string());
+        args.prepend(tv.version.clone());
         Ok(args)
     }
     fn install_args_ruby_install(&self, tv: &ToolVersion) -> Result<Vec<String>> {

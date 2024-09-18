@@ -30,8 +30,10 @@ permissions:
 
 jobs:
   unit:
-    runs-on: ubuntu-latest
-    #container: ghcr.io/jdx/mise:github-actions
+    strategy:
+      fail-fast: false
+      matrix: { os: [ubuntu-latest, macos-latest] }
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -39,11 +41,6 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
           token: ${{ secrets.RTX_GITHUB_BOT_TOKEN || github.token }}
-      - if: ${{ env.SCCACHE_S3_NO_CREDENTIALS == '0' }}
-        run: |
-          echo "AWS_ACCESS_KEY_ID=$MINIO_AWS_ACCESS_KEY_ID" >> "$GITHUB_ENV"
-          echo "AWS_SECRET_ACCESS_KEY=$MINIO_AWS_SECRET_ACCESS_KEY" >> "$GITHUB_ENV"
-      - uses: mozilla-actions/sccache-action@v0.0.4
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with: { toolchain: stable, components: rustfmt }
       - uses: taiki-e/install-action@v2
@@ -79,7 +76,6 @@ jobs:
           author_email: 123107610+mise-en-dev@users.noreply.github.com
       - uses: actions-rust-lang/rustfmt@v1
       - run: mise run lint
-      - run: ${SCCACHE_PATH} --show-stats
 
   nightly:
     runs-on: ubuntu-latest

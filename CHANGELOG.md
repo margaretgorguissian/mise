@@ -1,5 +1,20 @@
 # Changelog
 
+## [2024.9.6](https://github.com/jdx/mise/compare/v2024.9.5..v2024.9.6) - 2024-09-18
+
+### 🚀 Features
+
+- **(windows)** added ruby core plugin by [@jdx](https://github.com/jdx) in [#2599](https://github.com/jdx/mise/pull/2599)
+
+### 🐛 Bug Fixes
+
+- **(windows)** self_update by [@jdx](https://github.com/jdx) in [#2588](https://github.com/jdx/mise/pull/2588)
+- **(windows)** mise -v by [@jdx](https://github.com/jdx) in [fcc2d35](https://github.com/jdx/mise/commit/fcc2d354b962aa4fe8cc1b422b96a7e455107adc)
+- **(windows)** make tasks work by [@jdx](https://github.com/jdx) in [#2591](https://github.com/jdx/mise/pull/2591)
+- **(windows)** mise doctor fixes by [@jdx](https://github.com/jdx) in [#2597](https://github.com/jdx/mise/pull/2597)
+- **(windows)** make exec work by [@jdx](https://github.com/jdx) in [#2598](https://github.com/jdx/mise/pull/2598)
+- **(windows)** fixed shims by [@jdx](https://github.com/jdx) in [#2600](https://github.com/jdx/mise/pull/2600)
+
 ## [2024.9.5](https://github.com/jdx/mise/compare/v2024.9.4..v2024.9.5) - 2024-09-17
 
 ### 🔍 Other Changes
